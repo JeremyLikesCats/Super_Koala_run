@@ -1,6 +1,6 @@
 # Super Koala Run
 
-This is a game made in collaboration with MrKoalaGames (https://github.com/MrKoalaGames) in Y9 for a school project! 
+This is a game made in collaboration with MrKoalaGames (https://github.com/MrKoalaGames) in Y9 as a school project! 
 
 # About
 
