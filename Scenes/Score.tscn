@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://i27qxak285be"]
+
+[ext_resource type="Texture2D" uid="uid://ds6y6pjqbg7x6" path="res://Images/Background.png" id="1_uybfl"]
+[ext_resource type="FontFile" uid="uid://dic54vaq5uw0d" path="res://glacial-indifference/GlacialIndifference-Bold.otf" id="2_o4vt2"]
+[ext_resource type="Texture2D" uid="uid://dmt4nmohfj7ny" path="res://Images/playbutton.png" id="3_eqqj5"]
+[ext_resource type="Script" path="res://Scripts/rich_text_label (2).gd" id="3_fp580"]
+[ext_resource type="Texture2D" uid="uid://r5nwly2os4k7" path="res://Images/playbuttonhovre.png" id="4_0dqka"]
+[ext_resource type="Script" path="res://Scripts/gotolevelselect.gd" id="5_fci0u"]
+
+[sub_resource type="Theme" id="Theme_rj0ck"]
+default_font = ExtResource("2_o4vt2")
+default_font_size = 200
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 768.0
+scale = Vector2(1.69071, 1.69071)
+texture = ExtResource("1_uybfl")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 82.8055
+offset_top = 87.5372
+offset_right = 1181.81
+offset_bottom = 524.537
+theme = SubResource("Theme_rj0ck")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Score:"
+script = ExtResource("3_fp580")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 648.0
+offset_top = 640.0
+offset_right = 776.0
+offset_bottom = 704.0
+scale = Vector2(5.02843, 5.02843)
+texture_normal = ExtResource("3_eqqj5")
+texture_hover = ExtResource("4_0dqka")
+stretch_mode = 0
+script = ExtResource("5_fci0u")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://gbkq7b685jja"]
+
+[ext_resource type="Texture2D" uid="uid://ds6y6pjqbg7x6" path="res://Images/Background.png" id="1_ivlkh"]
+[ext_resource type="Texture2D" uid="uid://d4fy5m4mpgg8y" path="res://Images/Logo.png" id="1_o0xrh"]
+[ext_resource type="Texture2D" uid="uid://dmt4nmohfj7ny" path="res://Images/playbutton.png" id="3_gllvs"]
+[ext_resource type="Texture2D" uid="uid://r5nwly2os4k7" path="res://Images/playbuttonhovre.png" id="4_aivpv"]
+[ext_resource type="Script" path="res://Scripts/gotolevelselect.gd" id="5_y2nma"]
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 768.0
+scale = Vector2(1.69071, 1.69071)
+texture = ExtResource("1_ivlkh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 390.37
+offset_top = 21.88
+offset_right = 1391.24
+offset_bottom = 521.88
+texture = ExtResource("1_o0xrh")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 640.0
+offset_right = 776.0
+offset_bottom = 704.0
+scale = Vector2(5.02843, 5.02843)
+texture_normal = ExtResource("3_gllvs")
+texture_hover = ExtResource("4_aivpv")
+stretch_mode = 0
+script = ExtResource("5_y2nma")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

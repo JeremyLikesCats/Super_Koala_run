@@ -1,0 +1,199 @@
+[gd_scene load_steps=11 format=3 uid="uid://ynmq1vu0geqf"]
+
+[ext_resource type="PackedScene" uid="uid://wn7cb22gt243" path="res://Scenes/player.tscn" id="1_eik4c"]
+[ext_resource type="Script" path="res://Scripts/AnimatableBody2D.gd" id="3_utafp"]
+[ext_resource type="Texture2D" uid="uid://dq8krn0duvx77" path="res://Images/movingplatform.png" id="4_hl331"]
+[ext_resource type="Texture2D" uid="uid://bi68qxu5fow6j" path="res://Images/Leaf.png" id="5_o0s51"]
+[ext_resource type="PackedScene" uid="uid://mfrsjtao4ioj" path="res://Scenes/ray_cast_2d.tscn" id="7_lykb7"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="9_nmim1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlyie"]
+size = Vector2(64, 4)
+
+[sub_resource type="Theme" id="Theme_gpom8"]
+default_font_size = 60
+
+[sub_resource type="TileSet" id="TileSet_vdgws"]
+physics_layer_0/collision_layer = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5x8n"]
+size = Vector2(2239, 174)
+
+[node name="level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_eik4c")]
+position = Vector2(7, 76)
+
+[node name="Moving platforms" type="Node2D" parent="."]
+position = Vector2(37, 16)
+
+[node name="MovingPlatform" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(223, 115)
+script = ExtResource("3_utafp")
+distance_x = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="MovingPlatform2" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(646, 27)
+script = ExtResource("3_utafp")
+distance_y = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform2"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform2"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="MovingPlatform3" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(350, -7)
+script = ExtResource("3_utafp")
+distance_x = -200
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform3"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform3"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="MovingPlatform4" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(191, -35)
+script = ExtResource("3_utafp")
+distance_x = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform4"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform4"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="MovingPlatform5" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(74, -74)
+script = ExtResource("3_utafp")
+distance_x = 200
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform5"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform5"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="MovingPlatform6" type="AnimatableBody2D" parent="Moving platforms"]
+position = Vector2(300, -115)
+script = ExtResource("3_utafp")
+distance_x = -200
+
+[node name="Sprite2D" type="Sprite2D" parent="Moving platforms/MovingPlatform6"]
+position = Vector2(-32, -6)
+texture = ExtResource("4_hl331")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving platforms/MovingPlatform6"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dlyie")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hearts" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Hearts"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 99.0
+offset_right = 74.0
+offset_bottom = 115.0
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_o0s51")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Timer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 95.0
+offset_bottom = 102.0
+theme = SubResource("Theme_gpom8")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "60"
+script = ExtResource("9_nmim1")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Timer/Label"]
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vdgws")
+format = 2
+layer_0/name = "Platforms"
+layer_0/tile_data = PackedInt32Array(458750, 65536, 0, 458751, 65536, 0, 393216, 65536, 0, 393217, 65536, 0, 393218, 65536, 0, 458748, 65536, 0, 458749, 65536, 0, 393219, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524312, 65536, 0, 524313, 65536, 0, 524314, 65536, 0, 524315, 65536, 0, 524316, 65536, 0, 524317, 65536, 0, 524318, 65536, 0, 524319, 65536, 0, 524320, 65536, 0, 524321, 65536, 0, 524322, 65536, 0, 524323, 65536, 0, 524324, 65536, 0, 131096, 65536, 0, 131097, 65536, 0, 131098, 65536, 0, 131099, 65536, 0, 131100, 65536, 0, 131101, 65536, 0, 131102, 65536, 0, 131103, 65536, 0, 131104, 65536, 0, 131105, 65536, 0, 131106, 65536, 0, 131107, 65536, 0, 131108, 65536, 0, -524264, 0, 0, -458728, 0, 1, -393192, 0, 2, -524263, 65536, 0, -458727, 65536, 1, -393191, 65536, 2, -524262, 65536, 0, -458726, 65536, 1, -393190, 65536, 2, -524261, 65536, 0, -458725, 65536, 1, -393189, 65536, 2, -524260, 65536, 0, -458724, 65536, 1, -393188, 65536, 2, -524259, 131072, 0, -458723, 131072, 1, -393187, 65536, 2, -524255, 65536, 0, -458719, 65536, 1, -393183, 65536, 2, -524254, 65536, 0, -458718, 65536, 1, -393182, 65536, 2, -524250, 65536, 0, -458714, 65536, 1, -393178, 65536, 2, -524249, 65536, 0, -458713, 65536, 1, -393177, 65536, 2, -524245, 65536, 0, -458709, 65536, 1, -393173, 65536, 2, -524244, 65536, 0, -458708, 65536, 1, -393172, 65536, 2, -524240, 65536, 0, -458704, 65536, 1, -393168, 65536, 2, -524239, 65536, 0, -458703, 65536, 1, -393167, 65536, 2, -393186, 65536, 2, -393185, 65536, 2, -393184, 65536, 2, -393181, 65536, 2, -393180, 65536, 2, -393179, 65536, 2, -393176, 65536, 2, -393175, 65536, 2, -393174, 65536, 2, -393171, 65536, 2, -393170, 65536, 2, -393169, 65536, 2, -917474, 65536, 2, -917473, 65536, 2, -917472, 65536, 2, -917471, 65536, 2, -917470, 65536, 2, -917469, 65536, 2, -917468, 65536, 2, -917467, 65536, 2, -917466, 65536, 2, -917465, 65536, 2, -917464, 65536, 2, -917463, 65536, 2, -917462, 65536, 2, -917461, 65536, 2, -917460, 65536, 2, -917459, 65536, 2, -917458, 65536, 2, -917457, 65536, 2, -917456, 65536, 2, -917455, 65536, 2)
+layer_1/name = "Coins"
+layer_1/z_index = 1
+
+[node name="Void" type="Area2D" parent="."]
+position = Vector2(0, 157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+position = Vector2(528, 225)
+shape = SubResource("RectangleShape2D_m5x8n")
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="RayCast2D" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(409, 48)
+duration = 3
+
+[node name="RayCast2D2" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(448, 48)
+wait = 3
+duration = 3
+
+[node name="RayCast2D3" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(490, 48)
+wait = 6
+duration = 3
+
+[node name="RayCast2D4" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(539, 48)
+wait = 9
+duration = 3
+
+[node name="RayCast2D5" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(506, -208)
+duration = 2
+
+[node name="RayCast2D6" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(584, -208)
+duration = 2
+
+[node name="RayCast2D7" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(667, -208)
+duration = 2
+
+[node name="RayCast2D8" parent="Lasers" instance=ExtResource("7_lykb7")]
+position = Vector2(746, -208)
+duration = 2
+
+[connection signal="timeout" from="CanvasLayer/Timer/Label/Timer" to="CanvasLayer/Timer/Label" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Void" to="Player" method="_on_void_body_entered"]

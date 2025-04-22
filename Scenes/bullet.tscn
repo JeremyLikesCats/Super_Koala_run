@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbqeoggejooyj"]
+
+[ext_resource type="Texture2D" uid="uid://ckdmhmd4r72b6" path="res://Images/dispenser.png" id="1_l025g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bw53"]
+size = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1bw53")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l025g")

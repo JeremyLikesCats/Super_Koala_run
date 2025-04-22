@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://wn7cb22gt243"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3x6tn"]
+[ext_resource type="Texture2D" uid="uid://c1oar4v4lidk7" path="res://Images/koala.webp" id="2_t38yx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7u8c"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_3x6tn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 1.78814e-07)
+scale = Vector2(0.0104987, 0.00833333)
+texture = ExtResource("2_t38yx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_b7u8c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(2.08165e-12, 2.08165e-12)
+zoom = Vector2(4.4, 4.4)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

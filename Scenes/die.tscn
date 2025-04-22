@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnmcnlan0vc1f"]
+
+[ext_resource type="Texture2D" uid="uid://dmt4nmohfj7ny" path="res://Images/playbutton.png" id="2_oc1n0"]
+[ext_resource type="Texture2D" uid="uid://r5nwly2os4k7" path="res://Images/playbuttonhovre.png" id="2_pt52o"]
+[ext_resource type="Script" path="res://Scripts/TextureButton.gd" id="4_vnxy3"]
+[ext_resource type="Texture2D" uid="uid://baxxto4dgtfp4" path="res://Images/died.png" id="5_yuai2"]
+
+[sub_resource type="Theme" id="Theme_i5qb4"]
+default_font_size = 50
+
+[node name="Youdied" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 640.0
+offset_right = 776.0
+offset_bottom = 704.0
+scale = Vector2(5.02843, 5.02843)
+texture_normal = ExtResource("2_oc1n0")
+texture_hover = ExtResource("2_pt52o")
+stretch_mode = 0
+script = ExtResource("4_vnxy3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2080.0
+offset_bottom = 590.0
+texture = ExtResource("5_yuai2")
+
+[node name="Reason" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 984.0
+offset_right = 1192.0
+offset_bottom = 1088.0
+theme = SubResource("Theme_i5qb4")
+text = "Reason"
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
